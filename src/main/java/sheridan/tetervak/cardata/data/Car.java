@@ -1,5 +1,6 @@
 package sheridan.tetervak.cardata.data;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,9 +17,13 @@ public class Car {
     private String brand, model, color;
 
     @Column(name = "registration_number")
+    @JsonProperty("registration")
     private String registrationNumber;
 
-    private int modelYear, price;
+    @JsonProperty("year")
+    private int modelYear;
+
+    private int price;
 
     public Car() {
     }
